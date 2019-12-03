@@ -1,7 +1,6 @@
 """
 docstring
 """
-import pandas as pd
 
 
 def calc_price(filename, open_=open):
