@@ -4,11 +4,11 @@ docstring
 import pandas as pd
 
 
-def calc_price(filename):
+def calc_price(filename, open_=open):
     """
 
     :param filename:
     :return:
     """
-    file = pd.read_csv(filename, names=["name", "price", "quantity"])
-    return sum(file['price'] * file['quantity'])
+    with open_(filename, 'rt') as file:
+        return sum(float(line.split(',')[1]) * int(line.split(',')[2]) for line in file.readlines())
